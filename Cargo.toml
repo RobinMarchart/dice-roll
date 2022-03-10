@@ -1,0 +1,27 @@
+
+
+[package]
+name = "dice-roll"
+version = "0.1.0"
+authors = ["Robin Marchart <robin.marchart@tum.de>"]
+edition = "2021"
+license = "Apache-2.0"
+repository = "https://github.com/RobinMarchart/dice-roll"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+rand = {version = "^0.8.3", optional=true}
+nom = {version = "^6.1.2", optional=true}
+serde = {version = "^1.0.124", optional=true,features=["derive"]}
+log = {version = "^0.4.14", optional=true}
+
+[features]
+
+parser = ["nom"]
+
+roll = ["rand"]
+
+logging = ["log", "rand/log"]
+
+
