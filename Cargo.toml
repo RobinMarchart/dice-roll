@@ -7,6 +7,7 @@ authors = ["Robin Marchart <robin.marchart@tum.de>"]
 edition = "2021"
 license = "Apache-2.0"
 repository = "https://github.com/RobinMarchart/dice-roll"
+description = "small library to parse dice expressions and evaluate them"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
