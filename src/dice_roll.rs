@@ -28,6 +28,26 @@ pub enum EvaluationErrors {
     Overflow,
 }
 
+impl std::fmt::Display for EvaluationErrors{
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f,"{}",match *self {
+            Self::DivideByZero=>"division by zero occurred",
+            Self::Timeout=>"timeout reached",
+            Self::Overflow=>"overflow occurred"
+        })
+    }
+}
+
+impl std::error::Error for EvaluationErrors{
+    fn source(&self) -> Option<&(dyn std::error::Error + 'static)> {
+        None
+    }
+
+    fn cause(&self) -> Option<&dyn std::error::Error> {
+        self.source()
+    }
+}
+
 pub trait DiceEvaluate {
     fn evaluate<T: FnMut() -> bool, R: Rng>(
         &self,
